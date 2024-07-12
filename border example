@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Border Examples</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Border Examples</h1>
+
+        <div class="border-example">
+            <h2>Solid Border</h2>
+            <p>This is an example of a solid border.</p>
+        </div>
+
+        <div class="border-example-dashed">
+            <h2>Dashed Border</h2>
+            <p>This is an example of a dashed border.</p>
+        </div>
+
+        <div class="border-example-dotted">
+            <h2>Dotted Border</h2>
+            <p>This is an example of a dotted border.</p>
+        </div>
+
+        <div class="border-example-double">
+            <h2>Double Border</h2>
+            <p>This is an example of a double border.</p>
+        </div>
+
+        <div class="border-example-groove">
+            <h2>Groove Border</h2>
+            <p>This is an example of a groove border.</p>
+        </div>
+
+        <div class="border-example-radius">
+            <h2>Border Radius</h2>
+            <p>This is an example of a border with rounded corners.</p>
+        </div>
+    </div>
+</body>
+</html>
