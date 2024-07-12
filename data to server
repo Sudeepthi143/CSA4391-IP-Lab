@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Send Object Data to Server Example</title>
+</head>
+<body>
+    <button onclick="sendData()">Send Data</button>
+
+    <script>
+        // Function to send object data to the server
+        function sendData() {
+            const data = {
+                name: "John Doe",
+                age: 30,
+                city: "New York"
+            };
+
+            const url = 'https://jsonplaceholder.typicode.com/posts'; // Example endpoint URL
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data), // Convert object to JSON string
+            })
+            .then(response => response.json()) // Parse response JSON (if needed)
+            .then(data => {
+                console.log('Success:', data);
+                alert('Data sent successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Error sending data.');
+            });
+        }
+    </script>
+</body>
+</html>
