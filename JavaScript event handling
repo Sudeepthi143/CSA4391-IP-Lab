@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        #myElement {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Event Handling Example</h1>
+
+    <!-- a) Element to change style -->
+    <div id="myElement">Click me to change my style</div>
+    <button onclick="changeStyle()">Change Style</button>
+
+    <!-- b) Element to change attribute value -->
+    <img id="myImage" src="https://via.placeholder.com/150" alt="Placeholder Image" style="margin: 20px;">
+    <button onclick="changeImage()">Change Image</button>
+
+    <!-- c) Elements for performing calculation -->
+    <h2>Simple Calculator</h2>
+    <input type="number" id="number1" placeholder="Enter first number">
+    <input type="number" id="number2" placeholder="Enter second number">
+    <button onclick="performCalculation()">Calculate</button>
+    <div id="result" style="margin: 20px; font-weight: bold;"></div>
+
+    <script>
+        // a) Function to change the style of an HTML element
+        function changeStyle() {
+            const element = document.getElementById('myElement');
+            element.style.backgroundColor = 'coral';
+            element.style.color = 'white';
+            element.style.fontSize = '20px';
+            element.textContent = 'Style Changed!';
+        }
+
+        // b) Function to change the attribute value of an HTML element
+        function changeImage() {
+            const image = document.getElementById('myImage');
+            image.src = 'https://via.placeholder.com/300';
+            image.alt = 'New Placeholder Image';
+        }
+
+        // c) Function to perform a calculation
+        function performCalculation() {
+            const num1 = parseFloat(document.getElementById('number1').value);
+            const num2 = parseFloat(document.getElementById('number2').value);
+            const resultDiv = document.getElementById('result');
+
+            if (isNaN(num1) || isNaN(num2)) {
+                resultDiv.textContent = 'Please enter valid numbers';
+                resultDiv.style.color = 'red';
+            } else {
+                const sum = num1 + num2;
+                resultDiv.textContent = Result: ${sum};
+                resultDiv.style.color = 'green';
+            }
+        }
+    </script>
+</body>
+</html>
