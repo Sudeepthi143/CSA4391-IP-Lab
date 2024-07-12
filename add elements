@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamically Add Elements Example</title>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: dodgerblue;
+        margin: 10px;
+        text-align: center;
+        line-height: 100px;
+        color: white;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+    <button onclick="addElement()">Add Element</button>
+    <div id="container">
+        <!-- Elements will be added here -->
+    </div>
+
+    <script>
+        function addElement() {
+            // Create a new div element
+            var newDiv = document.createElement("div");
+            newDiv.className = "box";
+            newDiv.textContent = "Element";
+
+            // Append the new div to the container
+            document.getElementById("container").appendChild(newDiv);
+        }
+    </script>
+</body>
+</html>
