@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exception Handling</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="number"], input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error, .result {
+            font-size: 1em;
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+        }
+        .result {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form id="divisionForm" onsubmit="return handleDivision(event)">
+        <h2>Division Calculator</h2>
+        <label for="numerator">Numerator:</label>
+        <input type="number" id="numerator" name="numerator" required>
+
+        <label for="denominator">Denominator:</label>
+        <input type="number" id="denominator" name="denominator" required>
+
+        <input type="submit" value="Calculate">
+
+        <div id="error" class="error"></div>
+        <div id="result" class="result"></div>
+    </form>
+
+    <script>
+        function handleDivision(event) {
+            // Prevent form submission
+            event.preventDefault();
+
+            // Clear previous messages
+            document.getElementById('error').textContent = '';
+            document.getElementById('result').textContent = '';
+
+            // Get form values
+            const numerator = document.getElementById('numerator').value;
+            const denominator = document.getElementById('denominator').value;
+
+            try {
+                // Validate input
+                if (isNaN(numerator) || isNaN(denominator)) {
+                    throw new Error('Both inputs must be valid numbers.');
+                }
+
+                // Convert inputs to numbers
+                const num = parseFloat(numerator);
+                const denom = parseFloat(denominator);
+
+                // Check for division by zero
+                if (denom === 0) {
+                    throw new Error('Denominator cannot be zero.');
+                }
+
+                // Perform division
+                const result = num / denom;
+
+                // Display result
+                document.getElementById('result').textContent = Result: ${result};
+            } catch (error) {
+                // Display error message
+                document.getElementById('error').textContent = Error: ${error.message};
+            }
+        }
+    </script>
+</body>
+</html>
